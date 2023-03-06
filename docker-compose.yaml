@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    container_name: phpmyadmin
+    command: php -S 0.0.0.0:8080 -t public
+    environment:
+      - PMA_BLOWFISH_SECRET=asdfasdf
+      - PMA_HOST=db
+      - PMA_PORT=3306
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+  db:
+    image: mysql
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=phpmyadmin
+      - MYSQL_USER=phpmyadmin
+      - MYSQL_PASSWORD=phpmyadmin
+    volumes:
+      - ./mysql:/var/lib/mysql
