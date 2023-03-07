@@ -64,4 +64,4 @@ RUN docker-php-ext-install \
 
 COPY config.inc.php /app
 
-#ENTRYPOINT [ "php", "-S", "localhost:8080" ]
+CMD [ "php", "-S", "localhost:8080" ]

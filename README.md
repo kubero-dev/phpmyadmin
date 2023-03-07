@@ -2,7 +2,7 @@
 
 Run a basic php myadmin instance with:
 
-    docker run -d --name phpmyadmin -p 8080:80 ghcr.io/kubero-dev/phpmyadmin:v5.2.1
+    docker run -e PMA_HOST=db -e PMA_HOST=db -e PMA_BLOWFISH_SECRET=randomstring -p 8080:8080 ghcr.io/kubero-dev/phpmyadmin:v5.2.1 php -S 0.0.0.0:8080 -t /app/public
 
 
 ## Environment variables
