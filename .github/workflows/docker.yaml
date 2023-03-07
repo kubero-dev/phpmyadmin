@@ -31,14 +31,16 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout phpmyadmin repository
-        uses: actions/checkout@v3
-        with:
-          path: 'phpmyadmin'
-          repository: 'phpmyadmin/phpmyadmin'
+      #- name: Checkout phpmyadmin repository
+      #  uses: actions/checkout@v3
+      #  with:
+      #    path: 'phpmyadmin'
+      #    repository: 'phpmyadmin/phpmyadmin'
 
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          submodules: true
 
       - name: Run yarn install
         run: |
