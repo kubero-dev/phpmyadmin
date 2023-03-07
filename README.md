@@ -4,7 +4,7 @@ This repository contains the Dockerfile for the phpmyadmin image. It's goal is t
 
 Start a phpmyadmin instance with the following command:
 
-    docker run -e PMA_HOST=db -e PMA_HOST=db -e PMA_BLOWFISH_SECRET=randomstring -p 8080:8080 ghcr.io/kubero-dev/phpmyadmin:v5.2.1 php -S 0.0.0.0:8080 -t /app/public
+    docker run -e PMA_HOST=db -e PMA_PORT=3306 -e PMA_BLOWFISH_SECRET=randomstring -p 8080:8080 ghcr.io/kubero-dev/phpmyadmin:v5.2.1 php -S 0.0.0.0:8080 -t /app/public
 
 Start a phpmyadmin instance with docker-compose:
 

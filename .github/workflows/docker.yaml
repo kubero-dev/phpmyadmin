@@ -42,7 +42,7 @@ jobs:
         with:
           submodules: true
 
-      - name: Run yarn install
+      - name: Run install
         run: |
           cd phpmyadmin
           composer install --no-dev
