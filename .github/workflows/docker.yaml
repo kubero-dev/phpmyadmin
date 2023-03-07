@@ -1,10 +1,4 @@
 name: Docker
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 on:
   #schedule:
   #  - cron: '17 14 * * *'
@@ -17,12 +11,13 @@ on:
   #pull_request:
   #  branches: [ "main" ]
 
+  workflow_dispatch:
+
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   #IMAGE_NAME: ${{ github.repository }}
-
 
 jobs:
   build:
@@ -36,24 +31,19 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout repository build repository
+      - name: Checkout phpmyadmin repository
         uses: actions/checkout@v3
         with:
           path: 'phpmyadmin'
           repository: 'phpmyadmin/phpmyadmin'
 
-      - name: Checkout repository build repository
+      - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          path: 'custom'
-
-      - name: Run composer install
-        uses: php-actions/composer@v6
-        with:
-          dev: no
 
       - name: Run yarn install
         run: |
+          cd phpmyadmin
+          composer install --no-dev
           yarn install  --production
 
       # Install the cosign tool except on PR

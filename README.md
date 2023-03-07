@@ -6,3 +6,7 @@ Run a basic php myadmin instance with:
 
 
 ## Environment variables
+
+      - PMA_BLOWFISH_SECRET=randomstring
+      - PMA_HOST=db
+      - PMA_PORT=3306
