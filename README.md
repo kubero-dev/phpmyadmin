@@ -1,3 +1,8 @@
+> This repository os not maintained any more i favor for the image from linuxserver.io
+> 
+> `docker pull lscr.io/linuxserver/phpmyadmin`
+
+
 # phpmyadmin docker image
 
 This repository contains the Dockerfile for the phpmyadmin image. It's goal is to provide a easy to run phpmyadmin instance in a kubernetes cluster.
